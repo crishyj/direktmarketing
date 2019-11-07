@@ -7831,3 +7831,13 @@ pre .arg {
 #customer_table tbody tr td {
     vertical-align: middle;
 }
+
+.btn-success {
+    color: #fff;
+    background-color: #37a000;
+}
+
+.btn-success:hover {
+    color: #fff;
+    background-color: #37a010;
+}

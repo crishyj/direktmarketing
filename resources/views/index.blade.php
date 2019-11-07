@@ -408,6 +408,26 @@
             </div>
         </section>
     </div>
+
+    <div id="option_modal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+        
+            <!-- Modal content-->
+            <div class="modal-content">
+            <div class="modal-header">                
+                <h4 class="modal-title">Advertise</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p class="option_text">{{isset($options[0]) ? $options[0]->option : ""}}</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div>
+            </div>
+        
+        </div>
+    </div>
 @endsection
 
 
@@ -431,6 +451,10 @@
               $('html, body').animate({
                 scrollTop: $(".home_top1_text3").offset().top
               }, 7000);
+            }
+
+            if($('#option_modal .option_text').text() != ""){
+                $('#option_modal').modal('show')
             }
             
 

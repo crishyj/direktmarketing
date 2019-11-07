@@ -13,8 +13,7 @@
                 <div class="media">
                     <div class="header-icon text-success mr-3"><i class="typcn typcn-social-google-plus-circular"></i></div>
                     <div class="media-body">
-                        <h1 class="font-weight-bold">Google Adwords</h1>
-                       
+                        <h1 class="font-weight-bold">Google Adwords</h1>                       
                     </div>
                 </div>
             </div>

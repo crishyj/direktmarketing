@@ -5,14 +5,18 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Customer;
 use App\Models\Adword;
+use App\Models\Advertise;
 use App\Mail\CustomerVerify;
 use Illuminate\Support\Facades\Mail;
 class CustomerController extends Controller
 {
-    public function index(){
+    public function index(Request $request){
+        $option = $request->input('option');     
+       
         $customer = Customer::all();
         $adword = Adword::first();    
-        return view('index', compact('customer', 'adword'));
+        $options = Advertise::where('id', $option)->get();      
+        return view('index', compact('customer', 'adword', 'options'));
     }
 
     public function category(){
@@ -176,12 +180,12 @@ class CustomerController extends Controller
     }
 
     public function delete($id){
-      $customer = Customer::find($id);
-      if(!$customer){
-          return back()->withErrors(["delete" => 'Something went wrong.']);
-      }
-      $customer->delete();
-      return back()->with("success", 'Deleted Successfully');
-  }
+        $customer = Customer::find($id);
+        if(!$customer){
+            return back()->withErrors(["delete" => 'Something went wrong.']);
+        }
+        $customer->delete();
+        return back()->with("success", 'Deleted Successfully');
+    }
  
 }

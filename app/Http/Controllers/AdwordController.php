@@ -7,6 +7,12 @@ use App\Models\Adword;
 
 class AdwordController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     public function index(){
         config(['site.page' => 'adword']);
         $adword = Adword::first();       

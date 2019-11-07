@@ -44,6 +44,14 @@
                             Google Adwords
                         </a>
                     </li>
+
+                    <li class="@if($page == 'advertise') mm-active @endif">
+                        <a class="has-arrow material-ripple" href=" {{ route('advertise.index')}} ">
+                            <i class="typcn typcn-social-google-plus-circular"></i>
+                            Advertise
+                        </a>
+                    </li>
+
                     {{-- <li>
                         <a class="has-arrow material-ripple" href="#" >
                             <i class="typcn typcn-chart-pie-outline mr-2"></i>

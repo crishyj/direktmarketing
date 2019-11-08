@@ -26,11 +26,18 @@ class AdvertiseController extends Controller
     public function store(Request $request){
 
         $request->validate([
-            'option'=>'required',
-           
+            'title'=>'required',
+            'desc'=>'required',
+            'list1'=>'required',
+            'list2'=>'required',
+            'list3'=>'required'           
           ]);
           $options = new Advertise([
-            'option' => $request->get('option')          
+            'title' => $request->get('title'),
+            'desc' => $request->get('desc'),
+            'list1' => $request->get('list1'),
+            'list2' => $request->get('list2'),
+            'list3' => $request->get('list3')           
           ]);
           $options->save();
 
@@ -40,11 +47,19 @@ class AdvertiseController extends Controller
     public function update(Request $request){
 
         $request->validate([
-            'option'=>'required',           
+            'title'=>'required',
+            'desc'=>'required',
+            'list1'=>'required',
+            'list2'=>'required',
+            'list3'=>'required'        
         ]);
 
         $options = Advertise::find($request->get("id"));
-        $options->option = $request->get('option');
+        $options->title = $request->get('title');
+        $options->desc = $request->get('desc');
+        $options->list1 = $request->get('list1');
+        $options->list2 = $request->get('list2');
+        $options->list3 = $request->get('list3');
         $options->save();
         return response()->json('success');
     }

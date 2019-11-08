@@ -7841,3 +7841,7 @@ pre .arg {
     color: #fff;
     background-color: #37a010;
 }
+
+#customer_table {
+    width: 100% !important;
+}

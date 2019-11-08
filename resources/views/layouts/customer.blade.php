@@ -12,6 +12,14 @@
     <link href="{{ asset('view/css/animate.css')}}" rel="stylesheet" >
     <link href="{{ asset('view/css/fontawesome/css/all.min.css')}}" rel="stylesheet" >   
     <link href="{{ asset('view/css/main.css')}}" rel="stylesheet">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-151864561-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'UA-151864561-1');
+    </script>
 </head>
 
 <body class="page1">

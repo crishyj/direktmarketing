@@ -15,7 +15,11 @@ class CreateAdvertisesTable extends Migration
     {
         Schema::create('advertises', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->text('option')->nullable();
+            $table->text('title')->nullable();
+            $table->text('desc')->nullable();
+            $table->text('list1')->nullable();
+            $table->text('list2')->nullable();
+            $table->text('list3')->nullable();
             $table->timestamps();
         });
     }

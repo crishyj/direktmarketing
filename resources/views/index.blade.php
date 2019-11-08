@@ -17,10 +17,7 @@
                     <ul class="navbar-nav ">
                         <li class="nav-item active">
                             <a class="nav-link"  href="{{route('/')}}">Home</a>
-                        </li>
-                        {{-- <li class="nav-item">
-                            <a class="nav-link" href="#">Über</a>
-                        </li> --}}
+                        </li>                     
                         <li class="nav-item">
                             <a class="nav-link" href="mailto: kontakt@direktmarketing-boerse.de">Kontakt</a>
                         </li>
@@ -47,22 +44,22 @@
                         <p class="home_top1_text1">
                             DEUTSCHLANDS GRÖSSTES DIREKTMARKETING AUSSCHREIBUNGSPORTAL
                         </p>
-                        <p class="home_top1_text2">
-                            {{ $adword->title }}
+                        <p class="home_top1_text2">                          
+                            {{isset($options[0]) ? $options[0]->title : $adword->title}}
                         </p>
 
                         <p class="home_top1_text3">
-                                {{ $adword->desc }}                      
+                            {{isset($options[0]) ? $options[0]->desc : $adword->desc}}                          
                         </p>
                         <ul class="home_ul">
                             <li>
-                                {{ $adword->list1 }}      
+                                {{isset($options[0]) ? $options[0]->list1 : $adword->list1}}         
                             </li>
                             <li>
-                                {{ $adword->list2 }}
+                                {{isset($options[0]) ? $options[0]->list2 : $adword->list2}}                  
                             </li>
-                            <li>                                   
-                                {{ $adword->list3 }}
+                            <li>           
+                                {{isset($options[0]) ? $options[0]->list3 : $adword->list3}}                               
                             </li>
                         </ul>
 
@@ -199,8 +196,7 @@
                             @empty       
                     
                             @endforelse
-                        </div>
-                        
+                        </div>                                                
                     </div>
                     <div id="menu1" class="tab-pane fade">
                         <div class="row">
@@ -409,7 +405,7 @@
         </section>
     </div>
 
-    <div id="option_modal" class="modal fade" role="dialog">
+    {{-- <div id="option_modal" class="modal fade" role="dialog">
         <div class="modal-dialog">
         
             <!-- Modal content-->
@@ -419,7 +415,11 @@
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
             <div class="modal-body">
-                <p class="option_text">{{isset($options[0]) ? $options[0]->option : ""}}</p>
+                <p class="option_text">{{isset($options[0]) ? $options[0]->title : ""}}</p>
+                <p class="option_text">{{isset($options[0]) ? $options[0]->desc : ""}}</p>
+                <p class="option_text">{{isset($options[0]) ? $options[0]->list1 : ""}}</p>
+                <p class="option_text">{{isset($options[0]) ? $options[0]->list2 : ""}}</p>
+                <p class="option_text">{{isset($options[0]) ? $options[0]->list3 : ""}}</p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
@@ -427,7 +427,7 @@
             </div>
         
         </div>
-    </div>
+    </div> --}}
 @endsection
 
 
@@ -453,9 +453,9 @@
               }, 7000);
             }
 
-            if($('#option_modal .option_text').text() != ""){
-                $('#option_modal').modal('show')
-            }
+            // if($('#option_modal .option_text').text() != ""){
+            //     $('#option_modal').modal('show')
+            // }
             
 
         })

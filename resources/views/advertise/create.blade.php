@@ -31,23 +31,48 @@
             </div>
 
             <div class="card-body">
-                 
-                @if ($errors->any())
-                <div class="alert alert-danger">
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div><br />
-                @endif   
 
                 <form action="{{ route('advertise.store') }}" method="post">
                     @csrf
                 
                     <div class="form-group">
-                        <label for="option" class="font-weight-600"> Advertise:</label>
-                        <input type="text" name="option" class="form-control" >
+                        <label for="title" class="font-weight-600"> Title:</label>
+                        <input type="text" name="title" class="form-control  @error('option') is-invalid @enderror"" >
+                        @error('title')
+                            <div class="alert alert-danger mt-2">{{ $message }}</div>
+                        @enderror
+                    </div>    
+                    
+                     <div class="form-group">
+                        <label for="desc" class="font-weight-600"> Description:</label>
+                        <input type="text" name="desc" class="form-control  @error('option') is-invalid @enderror"" >
+                        @error('desc')
+                            <div class="alert alert-danger mt-2">{{ $message }}</div>
+                        @enderror
+                    </div>    
+                    
+                     <div class="form-group">
+                        <label for="list1" class="font-weight-600"> List1:</label>
+                        <input type="text" name="list1" class="form-control  @error('option') is-invalid @enderror"" >
+                        @error('list1')
+                            <div class="alert alert-danger mt-2">{{ $message }}</div>
+                        @enderror
+                    </div>    
+                    
+                     <div class="form-group">
+                        <label for="list2" class="font-weight-600"> List2:</label>
+                        <input type="text" name="list2" class="form-control  @error('option') is-invalid @enderror"" >
+                        @error('list2')
+                            <div class="alert alert-danger mt-2">{{ $message }}</div>
+                        @enderror
+                    </div>    
+                
+                    <div class="form-group">
+                        <label for="list3" class="font-weight-600"> List3:</label>
+                        <input type="text" name="list3" class="form-control  @error('option') is-invalid @enderror"" >
+                        @error('list3')
+                            <div class="alert alert-danger mt-2">{{ $message }}</div>
+                        @enderror
                     </div>              
 
                     <div class="text-center">                       

@@ -13,7 +13,7 @@ class CustomerController extends Controller
     public function index(Request $request){
         $option = $request->input('option');     
        
-        $customer = Customer::all();
+        $customer = Customer::all();    
         $adword = Adword::first();    
         $options = Advertise::where('id', $option)->get();      
         return view('index', compact('customer', 'adword', 'options'));
@@ -138,10 +138,7 @@ class CustomerController extends Controller
  
         $headers = "From:" . $emailFrom . "\r\n";
         $headers .= "Content-type: text/html; charset=UTF-8" . "\r\n";
-        
-// dump($headers);
-// die;
-        
+      
         mail($to,$subject,$message,$headers);
         
         mail($request->get('email'),"Here is your verification code",$verify);

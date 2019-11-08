@@ -28,22 +28,32 @@
                         <thead class="text-center">
                             <tr> 
                                 <td style="width: 40px;">ID</td>                            
-                                <th>Advertise Title</th>                                
-                                <th style="width: 40px;"></th>
-                                <th style="width: 70px;"></th>
+                                <th>Title</th>         
+                                <th>Description</th>                       
+                                <th>List1</th>
+                                <th>List2</th>
+                                <th>List3</th>
+                                <th style="width: 140px;"></th>
+                                
                             </tr>
                         </thead>
                         <tbody class="text-center">                        
                             @forelse($options as $option)
                                 <tr>
-                                    <input type="hidden" name="option" class="option" value="{{$option->option}}" />   
-                                    <td>{{ $option->id}}</td>                              
-                                    <td>{{ $option->option}}</td>
+                                    <input type="hidden" name="title" class="title" value="{{$option->title}}" />  
+                                    <input type="hidden" name="desc" class="desc" value="{{$option->desc}}" />  
+                                    <input type="hidden" name="list1" class="list1" value="{{$option->list1}}" />  
+                                    <input type="hidden" name="list2" class="list2" value="{{$option->list2}}" />   
+                                    <input type="hidden" name="list3" class="list3" value="{{$option->list3}}" />  
+                                    <td>{{ $option->id}}</td>         
+                                    <td>{{ $option->title}}</td> 
+                                    <td>{{ $option->desc}}</td> 
+                                    <td>{{ $option->list1}}</td> 
+                                    <td>{{ $option->list2}}</td>                      
+                                    <td>{{ $option->list3}}</td>
                                     <td>
-                                        <a href="#" class="btn btn-success md-trigger mb-2 mr-1 modal-btn2" data-id="{{$option->id}}" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Add More" data-modal="modal-1">Edit</a>                                                                               
-                                    </td>
-                                    <td>
-                                        <a href="{{route('advertise.delete', $option->id)}}" onclick="return window.confirm('Are you sure?')" class="btn btn-danger btn-sm btn-delete" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Delete"><i class="fa fa-trash"></i> Delete</a>
+                                        <a href="#" class="btn btn-success md-trigger mb-2 mr-1 modal-btn2" data-id="{{$option->id}}" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Add More" data-modal="modal-1"><span class="typcn typcn-edit"></span>Edit</a>                                                                                                                 
+                                        <a href="{{route('advertise.delete', $option->id)}}" onclick="return window.confirm('Are you sure?')" class="btn btn-danger mb-2 mr-1  btn-sm btn-delete" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Delete"><i class="fa fa-trash"></i> Delete</a>
                                     </td>                              
                                 </tr>                     
                             @empty       
@@ -68,9 +78,26 @@
                     <div class="modal-body">
                         <input type="hidden" name="id" class="id" />
                         <div class="form-group">
-                            <label for="option" class="font-weight-600"> Advertise:</label>
-                            <input type="text" name="option" class="form-control option" >
-                        </div>             
+                            <label for="title" class="font-weight-600"> Title:</label>
+                            <input type="text" name="title" class="form-control title" >
+                        </div>   
+                        <div class="form-group">
+                            <label for="desc" class="font-weight-600"> Description:</label>
+                            <input type="text" name="desc" class="form-control desc" >
+                        </div>   
+                        <div class="form-group">
+                            <label for="list1" class="font-weight-600"> List1:</label>
+                            <input type="text" name="list1" class="form-control list1" >
+                        </div>   
+                        <div class="form-group">
+                            <label for="list2" class="font-weight-600"> List2:</label>
+                            <input type="text" name="list2" class="form-control list2" >
+                        </div>   
+                        <div class="form-group">
+                            <label for="list3" class="font-weight-600"> List3:</label>
+                            <input type="text" name="list3" class="form-control list3" >
+                        </div>   
+                                    
                     </div>              
                     
                     <div class="modal-footer">    
@@ -91,10 +118,17 @@
     $(document).ready(function(){
         $('.modal-btn2').click(function(){
             let id = $(this).data('id');
-            let option = $(this).parents('tr').find('.option').val().trim();
-            console.log(id);
+            let title = $(this).parents('tr').find('.title').val().trim();     
+            let desc = $(this).parents('tr').find('.desc').val().trim();     
+            let list1 = $(this).parents('tr').find('.list1').val().trim();     
+            let list2 = $(this).parents('tr').find('.list2').val().trim();     
+            let list3 = $(this).parents('tr').find('.list3').val().trim();          
             $("#edit_form .id").val(id);
-            $("#edit_form .option").val(option);
+            $("#edit_form .title").val(title);
+            $("#edit_form .desc").val(desc);
+            $("#edit_form .list1").val(list1);
+            $("#edit_form .list2").val(list2);
+            $("#edit_form .list3").val(list3);
             $("#editModal").modal();
         })
 

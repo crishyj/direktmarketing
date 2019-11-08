@@ -15,7 +15,6 @@ class CustomerController extends Controller
         if($mode =='short'){
             return redirect(route('oneform.index'));
         }
-
         $option = $request->input('option');            
         $customer = Customer::all();    
         $adword = Adword::first();    
@@ -25,6 +24,10 @@ class CustomerController extends Controller
     }
 
     public function category(){
+        $change_mode = rand(1,3);
+        if($change_mode<2){
+          return redirect(route('oneform.index'));
+        }
         return view('customer.category');
     }
 

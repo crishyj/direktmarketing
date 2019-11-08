@@ -27,16 +27,16 @@
                 <div class="col-md-2"></div>
                 <div class="col-md-8">
                     <div class="seventh_box">
-                        <div class="third_title1">
-                            <span> Schritt 1 </span> von 6
-                        </div>
+                        <!--<div class="third_title1">-->
+                        <!--    <span> Schritt 1 </span> von 6-->
+                        <!--</div>-->
                         <div class="target_group">
                             <div class="second_option_title">
                                 Was für ein Projekt planen Sie ?
                             </div>
-                            <div class="seventh_text">
-                                Bitte wählen Sie aus, welche Art von Projekt Sie ausschreiben wollen:
-                            </div>
+                            <!--<div class="seventh_text">-->
+                            <!--    Bitte wählen Sie aus, welche Art von Projekt Sie ausschreiben wollen:-->
+                            <!--</div>-->
                         </div>
                     </div>
                     <div class="row">
@@ -101,17 +101,12 @@
             <div class="row">
                 <div class="col-md-2"></div>
                 <div class="col-md-8">
-                    <div class="seventh_box">
-                        <div class="third_title1">
-                            <span>Schritt 2</span> von 6
-                        </div>
+                    <div class="seventh_box">                     
                         <div class="target_group">
                             <div class="second_option_title">
                                 In welchem Land möchten Sie Ihre Kampagne starten?
                             </div>
-                            <div class="seventh_text">
-                                Bitte wählen Sie Ihr Zielland. Wir informieren nur Anbieter über Ihre Anfrage - wenn diese, Dienstleistungen im jeweiligen Land anbieten.Diese Selektion unterstützt Sie als Kunde - aber auch die Dienstleister.
-                            </div>
+                        
                         </div>
                     </div>
                     <div class="row">
@@ -180,17 +175,11 @@
             <div class="row">
                 <div class="col-md-2"></div>
                 <div class="col-md-8">
-                    <div class="seventh_box">
-                        <div class="third_title1">
-                            <span>Schritt 3</span> von 6
-                        </div>
+                    <div class="seventh_box">                    
                         <div class="target_group">
                             <div class="second_option_title">
                                 Welche Zielgruppe wollen Sie erreichen ?
-                            </div>
-                            <div class="seventh_text">
-                                An wen richtet sich Ihre Kampagne ? Wir informieren nur Anbieter über Ihre Anfrage - wenn diese, Dienstleistungen  auch an Ihre Zielgruppe anbieten. Diese Selektion unterstützt Sie als Kunde - aber auch die Dienstleister.
-                            </div>
+                            </div>                        
                         </div>
                     </div>
                     <div class="row">
@@ -243,45 +232,19 @@
             <div class="row">
                 <div class="col-md-2"></div>
                 <div class="col-md-8">
-                    <div class="second_box1 mt-5">
-                        <div class="third_title1">
-                            <span>Schritt 4</span> von 6
-                        </div>
+                    <div class="second_box1 mt-5">                      
                         <form action="" method="post" class="register_form1">
-                            @csrf   
-
-                            <div class="target_group">
-                                <div class="second_option_title">
-                                    Wie lautet Ihr Projekt?
-                                </div>
-                                <div class="seventh_text py-2">
-                                    Geben Sie Ihrem Projekt einen schlagkräftigen Namen. Dies erhöht die Anzahl der Angebote, die Sie von den Dienstleistern erhalten.
-                                </div>
-                                <input class="form-control title" type="text" name="title" placeholder=" " required>
-                                <span class="invalid-feedback title_error"> Sie mussen den Titel eingeben.<strong></strong></span>
-                            </div>
+                            @csrf                             
 
                             <div class="target_group">
                                 <div class="second_option_title">
                                     Beschreiben Sie Ihre Projekt und Ihre Zielgruppe
-                                </div>
-                                    <div class="seventh_text py-2">
-                                    Je detaillierter Sie Ihre Anfrage beschreiben, desto günstiger sind in der Regel die Angebote. Beschreiben Sie Ihre Zielgruppe - bei Privatpersonen in der Regel Region, Alter, Geschlecht und Kaufkraft oder andere soziodemographische Informationen. Bei Unternehmen wird die Zielgruppe in der Regel durch Branche, Region, Umsatzgrösse oder Mitarbeiterzahl beschrieben. 
-                                </div>
+                                </div>                             
                                 <textarea name="target_group_desc" rows="15" class="form-control target_group_desc" placeholder="" required></textarea>
                                 <span class="invalid-feedback target_group_desc_error"> Sie mussen den Beschreibung eingeben.  <strong></strong></span>
-                            </div>
-                       
-                            <div class="third_title1 mt-5">
-                                <span>Schritt 5 </span> von 6
-                            </div>
-
-                            <div class="seventh_text py-2">
-                                Wir sind im vorletzten Schritt angekommen. Damit Sie die Angebote erhalten, benötigen wir noch ein paar Daten von Ihnen. Die Ausschreibung ist 100% kostenlos und ohne einer Verpflichtung. Bitte geben Sie auch das Budget an - das Budget wird nicht an die Dienstleister weiter kommuniziert. Wir eliminieren Angebote automatisch für Sie die Ihr Budget übersteigen. 
-                            </div>
-                                           
-
-                            <div class="form-group">
+                            </div>                   
+                                         
+                            <div class="form-group mt-4">
                                 <label class="control-label">Name</label>
                                 <input class="form-control Name" type="text" name="Name" placeholder="Name">
                                 <span class="invalid-feedback Name_error"><strong> Der Name ist notwendig.</strong></span>
@@ -362,35 +325,35 @@
                 }
 
                 if(formdata.germany == '1'){    
-                    $('#seventh_item3 .checkbox1 label input[type="checkbox"]').prop('checked', 'true');          
-                    $('#seventh_item3').css('border-color', '#0289ff');
-                    $('#seventh_item3 .checkbox1 label .cr').css('border-color', '#0289ff');
+                    $('#seventh_item4 .checkbox1 label input[type="checkbox"]').prop('checked', 'true');          
+                    $('#seventh_item4').css('border-color', '#0289ff');
+                    $('#seventh_item4 .checkbox1 label .cr').css('border-color', '#0289ff');
                 }
 
 
                 if(formdata.austria == '1'){    
-                    $('#seventh_item3 .checkbox1 label input[type="checkbox"]').prop('checked', 'true');          
-                    $('#seventh_item3').css('border-color', '#0289ff');
-                    $('#seventh_item3 .checkbox1 label .cr').css('border-color', '#0289ff');
+                    $('#seventh_item5 .checkbox1 label input[type="checkbox"]').prop('checked', 'true');          
+                    $('#seventh_item5').css('border-color', '#0289ff');
+                    $('#seventh_item5 .checkbox1 label .cr').css('border-color', '#0289ff');
                 }
 
 
                 if(formdata.switzerland == '1'){    
-                    $('#seventh_item3 .checkbox1 label input[type="checkbox"]').prop('checked', 'true');          
-                    $('#seventh_item3').css('border-color', '#0289ff');
-                    $('#seventh_item3 .checkbox1 label .cr').css('border-color', '#0289ff');
+                    $('#seventh_item6 .checkbox1 label input[type="checkbox"]').prop('checked', 'true');          
+                    $('#seventh_item6').css('border-color', '#0289ff');
+                    $('#seventh_item6 .checkbox1 label .cr').css('border-color', '#0289ff');
                 }
 
                 if(formdata.supplier_company == '1'){    
-                    $('#seventh_item3 .checkbox1 label input[type="checkbox"]').prop('checked', 'true');          
-                    $('#seventh_item3').css('border-color', '#0289ff');
-                    $('#seventh_item3 .checkbox1 label .cr').css('border-color', '#0289ff');
+                    $('#seventh_item7 .checkbox1 label input[type="checkbox"]').prop('checked', 'true');          
+                    $('#seventh_item7').css('border-color', '#0289ff');
+                    $('#seventh_item7 .checkbox1 label .cr').css('border-color', '#0289ff');
                 }
 
                 if(formdata.supplier_personal == '1'){    
-                    $('#seventh_item3 .checkbox1 label input[type="checkbox"]').prop('checked', 'true');          
-                    $('#seventh_item3').css('border-color', '#0289ff');
-                    $('#seventh_item3 .checkbox1 label .cr').css('border-color', '#0289ff');
+                    $('#seventh_item8 .checkbox1 label input[type="checkbox"]').prop('checked', 'true');          
+                    $('#seventh_item8').css('border-color', '#0289ff');
+                    $('#seventh_item8 .checkbox1 label .cr').css('border-color', '#0289ff');
                 }
             }           
 
@@ -602,8 +565,7 @@
                     budget = $('.budget').val();
                 }
 
-                console.log(budget);
-                formdata.title = $('.title').val();
+                console.log(budget);               
                 formdata.target_group_desc = $('.target_group_desc').val();
                 formdata.Name = $('.Name').val();
                 formdata.email = $('.email').val();
@@ -615,7 +577,7 @@
                 $("#ajax-loading").fadeIn(); 
 
                 $.ajax({
-                    url:"{{route('customer.create')}}",
+                    url:"{{route('oneform.create')}}",
                     type: 'post',
                     dataType: 'json',
                     data: formdata,
@@ -624,11 +586,7 @@
                         if(response == 'success') {                           
                             window.location.href='/splash';
                         } else {
-                            let messages = response.data;
-                            if(messages.title) {                              
-                                $('.register_form1 .title_error').show();
-                                $('.register_form1 .title').focus();
-                            }
+                            let messages = response.data;                           
 
                             if(messages.target_group_desc) {                                
                                 $('.register_form1 .target_group_desc_error').show();
@@ -659,12 +617,7 @@
                         $("#ajax-loading").fadeOut();
                         if(response.responseJSON.message == 'The given data was invalid.'){
 
-                            let messages = response.responseJSON.errors;
-
-                            if(messages.title) {                              
-                                $('.register_form1 .title_error').show();
-                                $('.register_form1 .title').focus();
-                            }
+                            let messages = response.responseJSON.errors;                           
 
                             if(messages.target_group_desc) {                                
                                 $('.register_form1 .target_group_desc_error').show();

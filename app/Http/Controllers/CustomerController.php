@@ -16,7 +16,6 @@ class CustomerController extends Controller
         if($mode =='short'){
             return redirect(route('oneform.index'));
         }
-
         $option = $request->input('option');            
         $customer = Customer::all();    
         $adword = Adword::first();    
@@ -26,7 +25,7 @@ class CustomerController extends Controller
     }
 
     public function category(){
-      $change_mode = rand(1,3);
+      $change_mode = rand(1,2);
       if($change_mode < 2){
         return redirect(route('oneform.index'));
       }
@@ -57,7 +56,8 @@ class CustomerController extends Controller
             'Name'=>'required|string',
             'email'=>'required',
             'Telefonnummer'=>'required',
-            'company'=>'required|string',           
+            'company'=>'required|string',  
+                     
         );
         
         $request->validate($validate_array);     
@@ -79,11 +79,12 @@ class CustomerController extends Controller
             'supplier_personal' => $request->get('supplier_personal'),
             'title' => $request->get('title'),
             'target_group_desc' => $request->get('target_group_desc'),
-            'verfy_code' => $verify
+            'verfy_code' => $verify,
+            'oneform'=>0
         ]);             
         
         //  Mail::to($request->get('email'))->send(new CustomerVerify($verify, $request->get('name')));
-        $name = $request->get('email');
+        $name = $request->get('Name');
         $email = $request->get('email');
         $Telefonnummer = $request->get('Telefonnummer');
         $company = $request->get('company');
@@ -198,6 +199,106 @@ class CustomerController extends Controller
 
     public function oneform(){
       return view('customer.oneform');
+    }
+
+    public function oneform_create(Request $request){
+      $validate_array = array(
+         
+          'target_group_desc'=>'required',
+          'Name'=>'required|string',
+          'email'=>'required',
+          'Telefonnummer'=>'required',
+          'company'=>'required|string',           
+      );
+      
+      $request->validate($validate_array);     
+      $verify = rand(100000,999999);
+
+      Customer::create([
+          'name' => $request->get('Name'),
+          'email' => $request->get('email'),
+          'phone' => $request->get('Telefonnummer'),
+          'company' => $request->get('company'),
+          'budget' => $request->get('budget'),
+          'email_marketing' => $request->get('email_marketing'),
+          'callcenter' => $request->get('callcenter'),
+          'postal_Address' => $request->get('postal_Address'),
+          'germany' => $request->get('germany'),
+          'austria' => $request->get('austria'),
+          'switzerland' => $request->get('switzerland'),
+          'supplier_company' => $request->get('supplier_company'),
+          'supplier_personal' => $request->get('supplier_personal'),
+          
+          'target_group_desc' => $request->get('target_group_desc'),
+          'verfy_code' => $verify,
+          'oneform'=>1
+      ]); 
+      
+      $name = $request->get('Name');
+      $email = $request->get('email');
+      $Telefonnummer = $request->get('Telefonnummer');
+      $company = $request->get('company');
+      $budget = $request->get('budget');    
+      $target_group_desc = $request->get('target_group_desc');
+      
+      
+      
+      $emailFrom = $email;
+      $to = "andreas@dieanalysten.com";
+      $subject = "New Job Posted";
+      $message = '<body >
+          <div style="width:500px; margin:10px auto; background:#f1f1f1; border:1px solid #ccc">
+              <table  width="100%" border="0" cellspacing="5" cellpadding="10">
+                <tr>
+                  <td style="font-size:14px; color:#323232">Name</td>
+                </tr>
+                <tr>
+                  <td style="font-size:16px; font-weight:bold"><strong>' . $name .'</strong></td>
+                </tr>
+                <tr>
+                  <td style="font-size:14px; color:#323232">Emil :</td>
+                </tr>
+                <tr>
+                  <td style="font-size:16px;  font-weight:bold"><strong>'.$email .'</strong></td>
+                </tr>
+                 <tr>
+                  <td style="font-size:14px; color:#323232">Telefonnummer :</td>
+                </tr>
+                <tr>
+                  <td style="font-size:16px;  font-weight:bold"><strong>'.$Telefonnummer.'</strong></td>
+                </tr>
+                <tr>
+                  <td style="font-size:14px; color:#323232">company :</td>
+                </tr>
+                <tr>
+                  <td style="font-size:16px;  font-weight:bold"><strong>'.$company.'</strong></td>
+                </tr>
+                <tr>
+                  <td style="font-size:14px; color:#323232">budget :</td>
+                </tr>
+                <tr>
+                  <td style="font-size:16px;  font-weight:bold"><strong>'.$budget.'</strong></td>
+                </tr>               
+                <tr>
+                  <td style="font-size:14px; color:#323232">target_group_desc :</td>
+                </tr>
+                <tr>
+                  <td style="font-size:16px;  font-weight:bold"><strong>'.$target_group_desc.'</strong></td>
+                </tr>
+              </table>
+          </div>
+      </body>
+      ';
+
+
+      $headers = "From:" . $emailFrom . "\r\n";
+      $headers .= "Content-type: text/html; charset=UTF-8" . "\r\n";
+    
+      mail($to,$subject,$message,$headers);
+      
+      mail($request->get('email'),"Here is your verification code",$verify);
+    
+      return response()->json('success');   
     }
  
 }

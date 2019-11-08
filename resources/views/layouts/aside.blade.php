@@ -38,6 +38,12 @@
                             <li><a href="">Dashboard Two</a></li>
                         </ul> --}}
                     </li>
+                    <li class="@if($page == 'oneform') mm-active @endif">
+                        <a class="has-arrow material-ripple" href=" {{ route('dashboard.oneform')}} ">
+                            <i class="typcn typcn-home-outline mr-2"></i>
+                            OneForm
+                        </a>
+                    </li>
                     <li class="@if($page == 'adword') mm-active @endif">
                         <a class="has-arrow material-ripple" href=" {{ route('dashboard.adwords')}} ">
                             <i class="typcn typcn-social-google-plus-circular"></i>
@@ -52,6 +58,7 @@
                         </a>
                     </li>
 
+                  
                     {{-- <li>
                         <a class="has-arrow material-ripple" href="#" >
                             <i class="typcn typcn-chart-pie-outline mr-2"></i>

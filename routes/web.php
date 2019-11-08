@@ -35,6 +35,9 @@ Route::post('/customerVerify', 'CustomerController@verify')->name('customer.veri
 Route::get('/contact', 'SupplierController@contact_request')->name('supplier.contactRequest');
 Route::post('/contact', 'SupplierController@contact_send')->name('supplier.contactSend');
 
+Route::get('/oneform', 'CustomerController@oneform')->name('oneform.index');
+Route::post('/oneform', 'CustomerController@oneform_create')->name('oneform.create');
+
 Route::any('/userdashboard', 'DashboardController@index')->name('dashboard.index');
 
 Route::any('/dashboard', 'DashboardController@admin')->name('dashboard.admin');
@@ -49,4 +52,6 @@ Route::post('/dashboard/advertise/create', 'AdvertiseController@store')->name('a
 Route::post('/dashboard/advertise', 'AdvertiseController@update')->name('advertise.update');
 Route::get('/dashboard/advertise/{id}', 'AdvertiseController@delete')->name('advertise.delete');
 
-Route::get('/oneform', 'CustomerController@oneform')->name('oneform.index');
+Route::any('/dashboard/oneform', 'DashboardController@oneform')->name('dashboard.oneform');
+Route::get('/dashboard/oneform/{id}', 'CustomerController@oneform_delete')->name('dashboard.oneform.delete');
+

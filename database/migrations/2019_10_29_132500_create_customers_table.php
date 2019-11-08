@@ -32,6 +32,7 @@ class CreateCustomersTable extends Migration
             $table->text('target_group_desc')->nullable();
             $table->string('email_verified')->nullable();
             $table->string('verfy_code')->nullable();
+            $table->string('oneform')->nullable();
             $table->timestamps();
         });
     }

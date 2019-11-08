@@ -11,12 +11,17 @@ use Illuminate\Support\Facades\Mail;
 class CustomerController extends Controller
 {
     public function index(Request $request){
-        $option = $request->input('option');     
-       
+        $mode = $request->input('mode');
+        if($mode =='short'){
+            return redirect(route('oneform.index'));
+        }
+
+        $option = $request->input('option');            
         $customer = Customer::all();    
         $adword = Adword::first();    
-        $options = Advertise::where('id', $option)->get();      
+        $options = Advertise::where('id', $option)->get();           
         return view('index', compact('customer', 'adword', 'options'));
+        
     }
 
     public function category(){
@@ -42,11 +47,12 @@ class CustomerController extends Controller
     public function create(Request $request){
 
         $validate_array = array(
+            'title'=>'required',
+            'target_group_desc'=>'required',
             'Name'=>'required|string',
             'email'=>'required',
             'Telefonnummer'=>'required',
-            'company'=>'required|string',
-           
+            'company'=>'required|string',           
         );
         
         $request->validate($validate_array);     
@@ -183,6 +189,10 @@ class CustomerController extends Controller
         }
         $customer->delete();
         return back()->with("success", 'Deleted Successfully');
+    }
+
+    public function oneform(){
+      return view('customer.oneform');
     }
  
 }

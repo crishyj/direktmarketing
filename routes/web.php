@@ -48,3 +48,5 @@ Route::get('/dashboard/advertise/create', 'AdvertiseController@create')->name('a
 Route::post('/dashboard/advertise/create', 'AdvertiseController@store')->name('advertise.store');
 Route::post('/dashboard/advertise', 'AdvertiseController@update')->name('advertise.update');
 Route::get('/dashboard/advertise/{id}', 'AdvertiseController@delete')->name('advertise.delete');
+
+Route::get('/oneform', 'CustomerController@oneform')->name('oneform.index');

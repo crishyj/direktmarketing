@@ -15,7 +15,7 @@
 </p>
 
 <p>
-    <strong>Budget: </strong> $ {{$id->budget}} USD
+    <strong>Budget: </strong> {{$id->budget}} <i class="fas fa-euro-sign"></i>
 </p>
 
 <p>

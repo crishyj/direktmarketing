@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Mail;
 class CustomerController extends Controller
 {
     public function index(Request $request){
+
         $mode = $request->input('mode');
         if($mode =='short'){
             return redirect(route('oneform.index'));
@@ -19,12 +20,16 @@ class CustomerController extends Controller
         $option = $request->input('option');            
         $customer = Customer::all();    
         $adword = Adword::first();    
-        $options = Advertise::where('id', $option)->get();           
+        $options = Advertise::where('id', $option)->get();      
         return view('index', compact('customer', 'adword', 'options'));
         
     }
 
     public function category(){
+      $change_mode = rand(1,3);
+      if($change_mode < 2){
+        return redirect(route('oneform.index'));
+      }
         return view('customer.category');
     }
 
